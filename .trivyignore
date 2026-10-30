@@ -1,0 +1,8 @@
+# spring-webmvc 6.2.x has no open-source fix for these; the fixed line is 7.0.x (Spring Boot 4).
+# CVE-2026-47884 needs XsltView, which the app never renders.
+# CVE-2026-47890 needs view fragments streamed over SSE. The run event stream uses SseEmitter, but every
+# event is a numeric id, an enum name and Jackson-encoded JSON data, so no view fragments are rendered and
+# client data cannot inject CRLF into the stream.
+# Revisit when moving to Boot 4.
+CVE-2026-47884
+CVE-2026-47890
