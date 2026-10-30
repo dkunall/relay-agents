@@ -11,6 +11,7 @@ import com.relayagents.workflow.domain.StepDefinition;
 import com.relayagents.workflow.domain.StepType;
 import com.relayagents.workflow.domain.WorkflowDefinition;
 import java.time.Clock;
+import java.time.Duration;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
@@ -75,6 +76,12 @@ public class StepRunner {
             log.warn("Step {}/{} threw unexpectedly", fence.runId(), fence.stepId(), e);
             return new StepOutcome.Failed(e.getClass().getSimpleName() + ": " + e.getMessage(), true);
         }
+    }
+
+    public Duration timeout(StepFence fence) {
+        RunRecord run = runs.findById(fence.runId()).orElseThrow();
+        return workflows.get(run.tenant(), run.workflowId(), run.workflowVersion()).definition().dag()
+            .step(fence.stepId()).timeout();
     }
 
     StepContext context(StepFence fence) {
