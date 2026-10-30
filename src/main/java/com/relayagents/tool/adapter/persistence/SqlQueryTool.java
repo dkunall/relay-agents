@@ -29,7 +29,7 @@ class SqlQueryTool implements Tool {
     static final int MAX_ROWS = 100;
     private static final Pattern START = Pattern.compile("^\\s*(select|with)\\b", Pattern.CASE_INSENSITIVE);
     private static final Pattern DENIED = Pattern.compile(
-        "\\b(set_config|current_setting|pg_\\w*|lo_\\w*|dblink\\w*|copy)\\b", Pattern.CASE_INSENSITIVE);
+        "\\b(set_config|current_setting|pg_\\w*|lo_\\w*|dblink\\w*|copy)\\b|\\bu&", Pattern.CASE_INSENSITIVE);
 
     private final ToolDescriptor descriptor;
     private final JdbcClient jdbc;
