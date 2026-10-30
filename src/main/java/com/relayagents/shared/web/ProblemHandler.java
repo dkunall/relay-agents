@@ -2,6 +2,7 @@ package com.relayagents.shared.web;
 
 import com.relayagents.shared.error.BusinessRuleException;
 import com.relayagents.shared.error.DomainException;
+import com.relayagents.shared.error.ForbiddenException;
 import com.relayagents.shared.error.InvalidRequestException;
 import com.relayagents.shared.error.NotFoundException;
 import com.relayagents.shared.error.QuotaExceededException;
@@ -34,6 +35,7 @@ public class ProblemHandler extends ResponseEntityExceptionHandler {
     ResponseEntity<ProblemDetail> domain(DomainException e) {
         HttpStatus status = switch (e) {
             case NotFoundException ignored -> HttpStatus.NOT_FOUND;
+            case ForbiddenException ignored -> HttpStatus.FORBIDDEN;
             case StateConflictException ignored -> HttpStatus.CONFLICT;
             case BusinessRuleException ignored -> HttpStatus.UNPROCESSABLE_ENTITY;
             case QuotaExceededException ignored -> HttpStatus.TOO_MANY_REQUESTS;
