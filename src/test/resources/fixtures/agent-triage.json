@@ -1,0 +1,9 @@
+{
+  "model": "scripted/triage",
+  "systemPrompt": "Classify the customer message. Answer only with JSON containing intent (refund, status or other) and orderId.",
+  "params": {"script": [
+    {"when": "(O-\\d+).*(damaged|broken|refund)", "reply": "{\"intent\": \"refund\", \"orderId\": \"$1\"}"},
+    {"when": "(O-\\d+)", "reply": "{\"intent\": \"status\", \"orderId\": \"$1\"}"},
+    {"reply": "{\"intent\": \"other\"}"}
+  ]}
+}

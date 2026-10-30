@@ -1,0 +1,10 @@
+[
+  {"title": "Refunds for damaged parcels", "content": "If a parcel arrives damaged in transit the customer gets a full refund of the order amount. Refunds over 5000 rupees need a team lead to approve them. The refund reaches the original payment method in five business days."},
+  {"title": "Late deliveries", "content": "Orders that arrive more than three days after the promised date earn a shipping credit. Late delivery alone does not qualify for a refund of the goods."},
+  {"title": "Returns window", "content": "Unused items can be returned within 30 days of delivery. The customer books a pickup and the refund is issued after the warehouse inspects the item."},
+  {"title": "Changing the delivery address", "content": "The delivery address can be changed until the order is packed. After it ships, the courier must be contacted to reroute the parcel."},
+  {"title": "Cancelling an order", "content": "An order can be cancelled for free before it ships. Cancelled prepaid orders are refunded automatically within two days."},
+  {"title": "Gold membership", "content": "Gold members get free express shipping, priority support and early access to sales. Membership renews every year unless cancelled."},
+  {"title": "Payment failures", "content": "If a payment fails but money left the account, the bank reverses it within seven days. Support cannot speed up a bank reversal."},
+  {"title": "Warranty claims", "content": "Electronics carry a one year manufacturer warranty. Claims go to the brand service centre with the invoice and serial number."}
+]

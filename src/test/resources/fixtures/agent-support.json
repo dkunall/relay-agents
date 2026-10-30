@@ -1,0 +1,12 @@
+{
+  "model": "scripted/support",
+  "systemPrompt": "You answer order questions. Look orders up with sql_query before answering.",
+  "tools": ["sql_query"],
+  "scopes": ["data.read"],
+  "params": {"script": [
+    {"when": "(O-\\d+)", "call": {"name": "sql_query", "args": {"sql": "select id, status from orders where id = '$1'"}}},
+    {"when": "\"status\":\"(\\w+)\"", "reply": "Your order is currently $1."},
+    {"when": "\"rowCount\":0", "reply": "I could not find that order."},
+    {"reply": "Sorry, I could not look that up."}
+  ]}
+}

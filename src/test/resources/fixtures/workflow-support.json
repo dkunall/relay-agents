@@ -1,0 +1,14 @@
+{
+  "name": "support-triage",
+  "steps": [
+    {"id": "classify", "type": "AGENT", "agent": "triage", "prompt": "{{input.message}}"},
+    {"id": "route", "type": "BRANCH", "needs": ["classify"], "on": "{{steps.classify.output.intent}}",
+     "cases": {"refund": ["policy"]}, "default": ["status"]},
+    {"id": "status", "type": "AGENT", "needs": ["route"], "agent": "support", "prompt": "{{input.message}}"},
+    {"id": "policy", "type": "RETRIEVE", "needs": ["route"], "knowledgeBase": "__KB__",
+     "query": "refund policy for parcels damaged in transit", "k": 3},
+    {"id": "refund", "type": "TOOL", "needs": ["policy"], "tool": "refund_issue", "grants": ["payments.write"],
+     "args": {"orderId": "{{steps.classify.output.orderId}}", "amountMinor": "{{input.amountMinor}}",
+              "reason": "Damaged in transit, covered by the refund policy"}}
+  ]
+}
