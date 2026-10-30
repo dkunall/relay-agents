@@ -1,5 +1,6 @@
-target
 .git
 .github
 .idea
 *.iml
+target
+scripts
