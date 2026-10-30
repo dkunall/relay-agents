@@ -93,12 +93,13 @@ public class ToolGateway {
             return seen(ctx, descriptor, executed.get());
         }
 
+        // Throttle first: a throttled attempt is retried and must not spend the run's tool-call budget.
+        if (!rateLimiter.tryAcquire(ctx.tenant(), name)) {
+            throw new ToolException("rate limit for '" + name + "' reached", true);
+        }
         if (!runs.consumeToolCall(ctx.run().id())) {
             throw new BudgetExceededException(BudgetKind.TOOL_CALLS, "tool call limit " + ctx.run().maxToolCalls()
                 + " reached");
-        }
-        if (!rateLimiter.tryAcquire(ctx.tenant(), name)) {
-            throw new ToolException("rate limit for '" + name + "' reached", true);
         }
 
         long started = System.nanoTime();
