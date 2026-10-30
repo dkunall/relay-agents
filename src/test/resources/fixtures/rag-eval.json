@@ -1,0 +1,12 @@
+[
+  {"query": "my parcel came damaged, do I get my money back", "expect": "Refunds for damaged parcels"},
+  {"query": "who has to approve a large refund", "expect": "Refunds for damaged parcels"},
+  {"query": "order arrived a week late", "expect": "Late deliveries"},
+  {"query": "can I send back an unused item", "expect": "Returns window"},
+  {"query": "ship to a different address", "expect": "Changing the delivery address"},
+  {"query": "cancel before it ships", "expect": "Cancelling an order"},
+  {"query": "benefits of gold members", "expect": "Gold membership"},
+  {"query": "payment failed but money was deducted from my bank", "expect": "Payment failures"},
+  {"query": "phone stopped working, warranty claim", "expect": "Warranty claims"},
+  {"query": "courier reroute after shipping", "expect": "Changing the delivery address"}
+]
