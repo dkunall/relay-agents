@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,10 @@ public class Json {
 
     public ObjectNode object() {
         return mapper.createObjectNode();
+    }
+
+    public ArrayNode array() {
+        return mapper.createArrayNode();
     }
 
     public JsonNode tree(Object value) {

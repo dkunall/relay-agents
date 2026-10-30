@@ -390,7 +390,7 @@ class JdbcRunRepository implements RunRepository {
             rs.getLong("max_cost_micros"), rs.getInt("max_tool_calls"), instant(rs, "deadline"),
             rs.getLong("spent_tokens"), rs.getLong("spent_cost_micros"), rs.getInt("tool_calls"),
             rs.getLong("reserved_tokens"), rs.getLong("reserved_cost_micros"), rs.getString("created_by"),
-            instant(rs, "created_at"), instant(rs, "updated_at"));
+            instant(rs, "created_at"), instant(rs, "updated_at"), rs.getString("request_hash"));
     }
 
     private StepRecord step(ResultSet rs, int n) throws SQLException {

@@ -10,5 +10,5 @@ public record RunRecord(UUID id, String tenant, UUID workflowId, int workflowVer
                         UUID sourceRunId, JsonNode input, JsonNode output, String failure, long maxTokens,
                         long maxCostMicros, int maxToolCalls, Instant deadline, long spentTokens,
                         long spentCostMicros, int toolCalls, long reservedTokens, long reservedCostMicros,
-                        String createdBy, Instant createdAt, Instant updatedAt) {
+                        String createdBy, Instant createdAt, Instant updatedAt, String idempotencyHash) {
 }
