@@ -1,0 +1,6 @@
+package com.relayagents.llm.application;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+public record ToolSpec(String name, String description, JsonNode parameters) {
+}
